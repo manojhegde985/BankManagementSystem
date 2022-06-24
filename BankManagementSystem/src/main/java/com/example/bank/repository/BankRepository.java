@@ -3,21 +3,26 @@ package com.example.bank.repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
-
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-
 import com.example.bank.dto.BankDto;
-import com.example.bank.entity.Bank;
+
 @Repository
 public class BankRepository implements IBankRepository {
 
+	private final Logger logger = LoggerFactory.getLogger(BankRepository.class);
+	   
+	   public String repository(){
+	        logger.info("This is a bank management repository");
+	        return "repository";
+	    }
 	  private JdbcTemplate jdbcTemplate;
 	  
 	  public BankRepository(DataSource dataSource) {
@@ -86,4 +91,4 @@ public class BankRepository implements IBankRepository {
 	    });
 	}
 
-}
+	}

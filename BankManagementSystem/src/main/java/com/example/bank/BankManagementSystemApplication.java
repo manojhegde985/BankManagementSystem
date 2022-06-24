@@ -6,12 +6,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 
 
 
 @SpringBootApplication
 @EnableConfigServer
 @EnableFeignClients
+@ComponentScan(basePackages="com.example.bank.controller"
++"com.example.bank.eo"+"com.example.bank.repository" +"com.example.bank.service")
 public class BankManagementSystemApplication {
 	private static final Logger logger = LoggerFactory.getLogger(BankManagementSystemApplication.class);
 	public static void main(String[] args) {

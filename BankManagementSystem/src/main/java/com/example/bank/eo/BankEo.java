@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import com.example.bank.BankManagementSystemApplication;
 import com.example.bank.dto.BankDto;
-import com.example.bank.entity.Bank;
 import com.example.bank.mapstruct.Mapstruct;
 import com.example.bank.repository.IBankRepository;
 
@@ -56,18 +55,19 @@ public class BankEo implements IBankEo {
 
 	@Override
 	public String healthCheck(Integer cid) {
-		return null;
-	/*	java.util.Optional<BankDto> s = repository.findById(cid);
-		if(s.isPresent()) {
+		
+		BankDto s = repository.findById(cid);
+		if(s.getCid() != null) {
 		return ("HealthCheck-Success");
 		}
 		else {
 		return ("HealthCheck-Failure");
 		}
-		}
+	
 
 	}
-*/
-}
+
+		
+		
 }
 

@@ -41,7 +41,7 @@ public class BankService implements IBankService{
 	public Bank getCustomer(Integer cid) {
 		return mapstruct.bankDtoToBank(bo.getCustomer(cid));
 	}
-	@Override
+	
 	public Bank addCustomer(Bank customer) {
 		BankDto customerdto=bo.addCustomer(mapstruct.bankToBankDto(customer));
 		return mapstruct.bankDtoToBank((customerdto));

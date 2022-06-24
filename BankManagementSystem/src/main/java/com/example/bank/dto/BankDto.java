@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 import org.slf4j.Logger;
@@ -13,29 +16,37 @@ import org.springframework.data.annotation.Id;
 import com.example.bank.BankManagementSystemApplication;
 
 @Entity
+@Table(name="customer_table")
 public class BankDto {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer cid;
+	
 	@Column
 	@NotEmpty(message="First name is required")
 	private String fname;
+	
 	@Column
 	@NotEmpty(message="Last name is required")
 	private String lname;
+	
 	@Column
 	@NotEmpty(message="Address is required")
+	@Max(value=10)
 	private String address;
+	
 	@Column
 	@NotEmpty(message="Username is required")
 	private String username;
+	
 	@Column
 	@NotEmpty(message="pasword is required")
+	@Min(value=6)
 	private String password;
 	
 	private static final Logger logger = LoggerFactory.getLogger(BankManagementSystemApplication.class);
-	String EntityLog() {
+	public String EntityLog() {
 	logger.info("this is bank management entity file ");
       
 	return "EntityLog";

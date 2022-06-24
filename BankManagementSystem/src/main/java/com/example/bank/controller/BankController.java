@@ -25,8 +25,8 @@ import com.example.bank.util.BankUtil;
 
 
 @ControllerAdvice
-	@RequestMapping(value="/customer")
-	@RestController
+@RequestMapping(value="/bank")
+@RestController
 	
 public class BankController {
 
@@ -35,8 +35,8 @@ public class BankController {
 	@Autowired
 	private Mapstruct mapstruct;
 	private final Logger logger = LoggerFactory.getLogger(BankController.class);
-    @RequestMapping("/")
-    String controller(){
+   
+   public String controller(){
         logger.info("This is a bank management controller layer");
         return "controller";
     }
